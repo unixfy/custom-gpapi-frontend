@@ -1,9 +1,6 @@
 // Edit this if SB discount changes. Needs to be in decimal format
 let gambitDiscountPercent = 0.12;
 
-// Reload data when submit button is clicked
-document.getElementById("tokenAmountForm").addEventListener("submit", reloadData);
-
 // Pull data on page load
 window.onload = function() {
     // Set default token value to 300
