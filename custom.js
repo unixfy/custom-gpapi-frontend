@@ -7,7 +7,7 @@ document.getElementById("tokenAmountForm").addEventListener("submit", reloadData
 // Pull data on page load
 window.onload = function() {
     // Set default token value to 300
-    document.getElementById("tokenAmount").defaultValue = 300;
+    document.getElementById("tokenAmount").defaultValue = 1000;
     // Reload the data from API
     reloadData();
 }
@@ -94,8 +94,9 @@ function appendData(data) {
 
     for (let i = 0; i < data.length; i++) {
         // We only want to display plays that haven't already started (i.e. past 1 hour before play-time) and that are profitable
-        if (moment(data[i].PlayDate).subtract(1, 'hours').diff() >= 0 && data[i].Calc.Profitable === true) {
-            let tr = document.createElement("tr");
+        //if (moment(data[i].PlayDate).subtract(1, 'hours').diff() >= 0 && data[i].Calc.Profitable === true) {
+        if (moment(data[i].PlayDate).subtract(1, 'hours').diff() >= 0 && data[i].Calc.Profitable === true && data[i].Calc.NoRisk.ProfitPerCard <= 3.75) {
+		let tr = document.createElement("tr");
             //TODO: Replace "undefined" Draw reward with a blank string
 
             // Determine which bet method options should be shown in the selector

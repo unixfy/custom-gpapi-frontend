@@ -14,9 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizer.contentWindow.js" integrity="sha512-RMBWitJB1ymY4l6xeYsFwoEgVCAnOWX/zL1gNwXjlUj78nZ8SVbJsZxbH/w0p2jDNraHkOW8rzQgcJ0LNSXWBA==" crossorigin="anonymous"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="custom.css" />
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 </head>
-<body>
+<body style="background-color:#E1DFDB">
 <!-- Preloader -->
 <div class="loader">
     <div class="sk-chase">
@@ -29,32 +30,7 @@
     </div>
 </div>
 <div class="container-fluid">
-    <h1>Latest Gambit Plays</h1>
-    <h4>Times are converted to your local timezone. Content is updated LIVE from the GambitProfit.com API.</h4>
-    <hr>
-    <div class="alert alert-warning" role="alert">
-        <h4 class="alert-heading">Update on Gambit Rewards</h4>
-        Update 08/11/2020: Gambit tokens from Swagbucks are now discounted 12%. The math in the backend has been refactored, to take into account the new cost of Gambit cards. This change is reflected in the backend API as well.
-        <b>Please note that profit per card DOES take into account the 264 SB cost for 300 tokens. It is NOT based on the 200 SB cost.</b>
-    </div>
-    <div class="card">
-        <h3 class="card-header">Settings</h3>
-        <div class="card-body">
-            <!-- Configuration settings - need to set return false on forms to prevent breaking fetch() -->
-            <form id="tokenAmountForm" onsubmit="return false">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Bet amount (tokens)</span>
-                    </div>
-                    <input type="number" class="form-control" id="tokenAmount" aria-describedby="tokenAmountHelp" placeholder="Enter # of tokens" min="50" max="70000">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" id="tokenSubmitBtn">Submit</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <br>
+        
     <table id="dataTable" class="table table-striped table-bordered">
         <thead>
         <tr>
@@ -96,6 +72,6 @@
 <!-- MomentJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
 <!-- Custom JS -->
-<script src="custom.js"></script>
+<script src="https://eager-ramanujan-e8c479.netlify.app/custom.js"></script>
 </body>
 </html>
