@@ -3,8 +3,6 @@ let gambitDiscountPercent = 0.12;
 
 // Pull data on page load
 window.onload = function() {
-    // Set default token value to 300
-    document.getElementById("tokenAmount").defaultValue = 1000;
     // Reload the data from API
     reloadData();
 }
@@ -16,7 +14,7 @@ function betMethodSwitcher(data, i) {
         var BetAmounts = `
                     Bet <b>${data[i].Calc.HighRisk.BetAmount}</b> tokens on ${data[i].Calc.HighRisk.TeamToBetOn}
                     `
-        var ProfitPerCard = data[i].Calc.HighRisk.ProfitPerCard + '% ≈ ' + ((parseFloat(data[i].Calc.HighRisk.ProfitPerCard)/100) * (parseFloat(document.getElementById("tokenAmount").value * (1 - gambitDiscountPercent)))).toFixed(2) + ' SB';
+        var ProfitPerCard = data[i].Calc.HighRisk.ProfitPerCard + '% ≈ ' + ((parseFloat(data[i].Calc.HighRisk.ProfitPerCard)/100) * (parseFloat(1000 * (1 - gambitDiscountPercent)))).toFixed(2) + ' SB';
         var ProfitPerCardRaw = data[i].Calc.HighRisk.ProfitPerCard;
     } else if ($("#betMethodSelector" + i + " option:selected").text() == "MedRisk" ) {
         var BetAmounts = `
@@ -24,7 +22,7 @@ function betMethodSwitcher(data, i) {
                     and
                     <b>${data[i].Calc.MedRisk.Team2BetAmount}</b> tokens on ${data[i].Calc.MedRisk.Team2ToBetOn}
                     `
-        var ProfitPerCard = data[i].Calc.MedRisk.ProfitPerCard + '% ≈ ' + ((parseFloat(data[i].Calc.MedRisk.ProfitPerCard)/100) * (parseFloat(document.getElementById("tokenAmount").value * (1 - gambitDiscountPercent)))).toFixed(2) + ' SB';
+        var ProfitPerCard = data[i].Calc.MedRisk.ProfitPerCard + '% ≈ ' + ((parseFloat(data[i].Calc.MedRisk.ProfitPerCard)/100) * (parseFloat(1000 * (1 - gambitDiscountPercent)))).toFixed(2) + ' SB';
         var ProfitPerCardRaw = data[i].Calc.MedRisk.ProfitPerCard;
     } else if ($("#betMethodSelector" + i + " option:selected").text() == "NoRisk") {
         // Need more logic to display different strings depending if there is a draw condition
@@ -40,7 +38,7 @@ function betMethodSwitcher(data, i) {
                         and <b>${data[i].Calc.NoRisk.Team2BetAmount}</b> tokens on ${data[i].Team2.Name}
                         `
         }
-        var ProfitPerCard = data[i].Calc.NoRisk.ProfitPerCard + '% ≈ ' + ((parseFloat(data[i].Calc.NoRisk.ProfitPerCard)/100) * (parseFloat(document.getElementById("tokenAmount").value * (1 - gambitDiscountPercent)))).toFixed(2) + ' SB';
+        var ProfitPerCard = data[i].Calc.NoRisk.ProfitPerCard + '% ≈ ' + ((parseFloat(data[i].Calc.NoRisk.ProfitPerCard)/100) * (parseFloat(1000 * (1 - gambitDiscountPercent)))).toFixed(2) + ' SB';
         var ProfitPerCardRaw = data[i].Calc.NoRisk.ProfitPerCard;
     } else {
         var BetAmounts = "err";
@@ -63,7 +61,7 @@ function reloadData() {
     // Remove datatables, will be reinitialized later
     destroyDataTables();
     // Fetch data from API
-    fetch('https://hfj9ocdja8.execute-api.eu-west-1.amazonaws.com/gambit-plays/tokens/' + document.getElementById('tokenAmount').value + '/?_limit=100&_sort=createdAt:DESC')
+    fetch('https://hfj9ocdja8.execute-api.eu-west-1.amazonaws.com/gambit-plays/tokens/1000/?_limit=100&_sort=createdAt:DESC')
         .then(function (response) {
             return response.json();
         })
