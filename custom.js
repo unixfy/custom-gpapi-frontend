@@ -111,8 +111,8 @@ function appendData(data) {
 
             // The BetAmounts / ProfitPerCard are always going to be empty, because they will be filled later with a separate function
             tr.innerHTML = `
-                <td><b>${data[i].Team1.Name}</b> (${data[i].Team1.Reward}) v. <b>${data[i].Team2.Name}</b> (${data[i].Team2.Reward}) ${data[i].Draw.Reward ? "v. <b>Draw</b> (" + data[i].Draw.Reward + ")" : ""}</td>
                 <td data-order="${data[i].PlayDate}">${moment(data[i].PlayDate).calendar()}</td>
+                <td><b>${data[i].Team1.Name}</b> (${data[i].Team1.Reward}) v. <b>${data[i].Team2.Name}</b> (${data[i].Team2.Reward}) ${data[i].Draw.Reward ? "v. <b>Draw</b> (" + data[i].Draw.Reward + ")" : ""}</td>
                 <td>
                       <select style="width: auto;" class="form-control" id="${"betMethodSelector" + i}">
                             ${betMethodSelectorOptions}
@@ -129,7 +129,7 @@ function appendData(data) {
             tr.innerHTML +=`
                 <td>${switcherData["BetAmounts"]}</td>
                 <td data-order="${switcherData["ProfitPerCardRaw"]}" class="ProfitPerCard">${switcherData["ProfitPerCard"]}</td>
-                <td><a target="_blank" rel="noreferrer" style="background-color:#E1DFDB" class="btn btn-block" href=${data[i].PlayUrl}>Go</a></td>    
+                <td><a target="_blank" rel="noreferrer" style="background-color:#431D2A" class="btn btn-block" href=${data[i].PlayUrl}>Go</a></td>    
             `
 
             // Listener to update table when bet method dropdown is switched
