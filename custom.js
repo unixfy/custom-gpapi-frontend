@@ -90,7 +90,7 @@ function appendData(data) {
     for (let i = 0; i < data.length; i++) {
         // We only want to display plays that haven't already started (i.e. past 1 hour before play-time) and that are profitable
         //if (moment(data[i].PlayDate).subtract(1, 'hours').diff() >= 0 && data[i].Calc.Profitable === true) {
-        if (moment(data[i].PlayDate).subtract(15, 'minutes').diff() >= 0 && data[i].Calc.NoRisk.ProfitPerCard <= 2) {
+        if (moment(data[i].PlayDate).subtract(30, 'minutes').diff() >= 0 && data[i].Calc.Profitable === true && data[i].Calc.NoRisk.ProfitPerCard <= 2) {
 		let tr = document.createElement("tr");
             //TODO: Replace "undefined" Draw reward with a blank string
 
