@@ -61,7 +61,7 @@ function reloadData() {
     // Remove datatables, will be reinitialized later
     destroyDataTables();
     // Fetch data from API
-    fetch('https://hfj9ocdja8.execute-api.eu-west-1.amazonaws.com/gambit-plays/tokens/1000/?_limit=100&_sort=createdAt:DESC')
+    fetch('https://hfj9ocdja8.execute-api.eu-west-1.amazonaws.com/gambit-plays/tokens/1000/?_limit=250&_sort=PlayDate:DESC')
         .then(function (response) {
             return response.json();
         })
