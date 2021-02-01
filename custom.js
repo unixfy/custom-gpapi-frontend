@@ -1,5 +1,5 @@
 // Edit this if SB discount changes. Needs to be in decimal format
-let gambitDiscountPercent = 0.5;
+let gambitDiscountPercent = 0.05;
 
 // Pull data on page load
 window.onload = function() {
